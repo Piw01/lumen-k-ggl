@@ -8,4 +8,4 @@
     </div>
 </x-layout>
 
-Menurutmu *vibe* kodenya sudah cocok dengan bayanganmu belum? Kalau tampilannya sudah dirasa pas, langkah selanjutnya kita baru masuk ke **Database (Migrasi)** biar tidak membosankan!
+{{-- Menurutmu *vibe* kodenya sudah cocok dengan bayanganmu belum? Kalau tampilannya sudah dirasa pas, langkah selanjutnya kita baru masuk ke **Database (Migrasi)** biar tidak membosankan! --}}
