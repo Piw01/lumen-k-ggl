@@ -128,7 +128,7 @@
     <footer class="py-4 text-center mt-auto" style="border-top: 1px solid #333; background-color: #0a0a0a;">
         <div class="container text-muted small">
             <p class="mb-1 fw-bold" style="letter-spacing: 1px;">LUMEN-K EQUIPMENT RENTALS</p>
-            <p class="mb-0">&copy; 2026 BRIDGES NETWORK - ALL RIGHTS RESERVED.</p>
+            <p class="mb-0">&copy; 2026 Lumen-K by Pi - ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
