@@ -22,13 +22,23 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+    /**
+     * Handle an incoming authentication request.
+     */
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // FIX REDIRECT DINAMIS BERDASARKAN ROLE
+        if (in_array($request->user()->role, ['admin', 'staff'])) {
+            // Jika Admin/Staff, arahkan ke dashboard admin
+            return redirect()->intended(route('home', absolute: false));
+        }
+
+        // Jika Customer, arahkan ke halaman katalog rental
+        return redirect()->intended(route('customer.katalog', absolute: false));
     }
 
     /**
@@ -44,4 +54,5 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+    
 }
