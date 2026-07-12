@@ -7,6 +7,7 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
 // 1. RUTE PUBLIK: Halaman depan pas baru dibuka (Landing Page / Login)
 Route::get('/', function () {
@@ -31,6 +32,17 @@ Route::middleware(['auth', 'role:admin,staff'])->group(function () {
     
     // Aksi Mengubah Status Transaksi
     Route::patch('transaksi/{id}/status', [TransaksiController::class, 'updateStatus'])->name('transaksi.updateStatus');
+});
+
+Route::middleware(['auth', 'role:customer'])->group(function () {
+    // Menampilkan katalog alat yang ready
+    Route::get('/katalog', [CustomerController::class, 'katalog'])->name('customer.katalog');
+    
+    // Eksekusi sewa alat
+    Route::post('/sewa/{id}', [CustomerController::class, 'sewa'])->name('customer.sewa');
+    
+    // Melihat riwayat transaksi milik sendiri
+    Route::get('/riwayat-sewa', [CustomerController::class, 'riwayat'])->name('customer.riwayat');
 });
 
 // 4. RUTE PENGATURAN PROFIL (Bawaan Breeze)
